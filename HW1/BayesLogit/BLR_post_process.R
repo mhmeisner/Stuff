@@ -77,7 +77,7 @@ for (iter in 1:(num_sims_completed))
   
 } # END for loop over iter: num_sims_completed
 
-
+print(qlist)
 cat("Computing Validation statistics of MCMC draws...\n")   
 
 ## Compute coverage proportions:
