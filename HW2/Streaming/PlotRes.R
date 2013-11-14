@@ -2,14 +2,23 @@
 # Make 2D Histogram:
 
 #res <- read.table("mini_result.txt",sep=",",header=F)
-res <- read.table("full_results.txt",sep=",",header=F)
+res <- read.table("~/Documents/binned-output/combined_output.txt",sep=",",header=F)
 head(res)
 
 x <- apply(res[,1:2],1,mean)
 y <- apply(res[,3:4],1,mean)
 z <- res[,5]
 
+d$mean_floor = floor(d$mean*100)/100
+d$mean_ceil = ceiling(d$mean*100)/100
+d$var_floor = floor(d$var*100)/100
+d$var_ceil = ceiling(d$var*100)/100
+
+res = d[,c('mean_floor','mean_ceil','var_floor','var_ceil')]
+res$count = rep(1,nrow(res))
+
 colvec <- terrain.colors(max(res[,5])+1)
+colvec <- terrain.colors(1000)
 mf <- 4
 px <- 480*mf
 png("hist2d.png",width=px,height=px)

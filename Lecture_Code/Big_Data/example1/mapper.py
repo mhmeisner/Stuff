@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 
-# From: http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/
 
 import sys
+import math
 
 # input comes from STDIN (standard input)
 for line in sys.stdin:
